@@ -70,32 +70,11 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      # ChronoCore depends on the sibling cores by relative path, so all three
-      # repositories are checked out next to each other. Set SIBLING_REPOS_TOKEN
-      # to a read-scoped token if the sibling repositories are private; for public
-      # repositories the default GITHUB_TOKEN is sufficient.
-      - name: Checkout ChronoCore
+      - name: Checkout
         uses: actions/checkout@v6
-        with:
-          path: ChronoCore-Swift
-
-      - name: Checkout LunarCore
-        uses: actions/checkout@v6
-        with:
-          repository: wbx1-Ltd/LunarCore-Swift
-          path: LunarCore-Swift
-          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
-
-      - name: Checkout AstroCore
-        uses: actions/checkout@v6
-        with:
-          repository: wbx1-Ltd/AstroCore-Swift
-          path: AstroCore-Swift
-          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Show Swift version
         run: swift --version
-        working-directory: ChronoCore-Swift
 
       # Re-derives the embedded Nepali Bikram Sambat table from Lahiri sidereal
       # ingress astronomy and asserts the known civil New Year anchors.
@@ -103,7 +82,6 @@ jobs:
         env:
           CHRONO_GEN: "1"
         run: swift test -c release --filter NepaliTableGenerator
-        working-directory: ChronoCore-Swift
 
   swift-test:
     name: Test / SwiftTest
@@ -111,29 +89,11 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Checkout ChronoCore
+      - name: Checkout
         uses: actions/checkout@v6
-        with:
-          path: ChronoCore-Swift
-
-      - name: Checkout LunarCore
-        uses: actions/checkout@v6
-        with:
-          repository: wbx1-Ltd/LunarCore-Swift
-          path: LunarCore-Swift
-          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
-
-      - name: Checkout AstroCore
-        uses: actions/checkout@v6
-        with:
-          repository: wbx1-Ltd/AstroCore-Swift
-          path: AstroCore-Swift
-          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Show Swift version
         run: swift --version
-        working-directory: ChronoCore-Swift
 
       - name: Run release tests
         run: swift test -c release
-        working-directory: ChronoCore-Swift
