@@ -84,7 +84,7 @@ ChronoCore solves one problem: turning a calendar date description (civil or tra
 
 > \[!NOTE\]
 >
-> All nine target calendar systems are implemented and tested. Two engines (Indian Panchanga and Nepali Bikram Sambat) are marked unvalidated in their capability because a line-by-line cross-check against a published authority is still pending; see [Calendar Systems](#-calendar-systems).
+> All nine target calendar systems are implemented, tested, and validated against an authoritative source: ICU for the Foundation engines, LunarCore for Chinese, Foundation `.dangi` and `.vietnamese` for the lunisolar engines, the canonical civil tables for Nepali and Bangla, and Drik Panchang for Indian Panchanga. See [Calendar Systems](#-calendar-systems).
 
 <div align="right">
 
@@ -262,15 +262,15 @@ Every target system has an engine, verified against source-backed golden fixture
 | ✅ | **Vietnamese Lunisolar** | `VietnameseLunisolarEngine` (Astronomy) | astronomy, UTC+7 | Yes | 1968 to 2099 |
 | ✅ | **Hebrew** | `HebrewEngine` (Foundation) | foundation (ICU) | Yes | 1900 to 2200 |
 | ✅ | **Hijri Umm al-Qura** | `HijriUmmAlQuraEngine` (Foundation) | foundation (ICU) | Yes | 1900 to 2100 |
-| ✅ | **Nepali Bikram Sambat** | `NepaliBikramSambatEngine` (Tables) | table | Pending | BS 2000 to 2110 |
-| ✅ | **Indian Panchanga** | `IndianPanchangaEngine` (Astronomy) | astronomy, Lahiri | Pending | 1900 to 2099 |
+| ✅ | **Nepali Bikram Sambat** | `NepaliBikramSambatEngine` (Tables) | table | Yes | BS 1970 to 2090 |
+| ✅ | **Indian Panchanga** | `IndianPanchangaEngine` (Astronomy) | astronomy, Lahiri | Yes | 1900 to 2099 |
 | ✅ | **Bangla** | `BanglaEngine` (Tables) | table (revised) | Yes | about 1919 to 2119 |
 
 Each system exposes its standard or regional variants through `CalendarVariant` (for example `chineseMainland`, `koreanModern`, `vietnameseModernUTC7`, `ummAlQuraSaudi`, `bangladeshRevised`). Korean and Vietnamese are computed astronomically (not approximated from the Chinese calendar) and cross-checked against Foundation `.dangi` and `.vietnamese`; documented boundary divergences are recorded in tests. Indian Panchanga returns the full five limbs (tithi, nakshatra, yoga, karana, masa) at sunrise for a location.
 
 > \[!NOTE\]
 >
-> Pending validation means the engine is implemented and astronomically or anchor verified, but a line-by-line comparison against a published official calendar is still outstanding. This is surfaced honestly through `CalendarSystemCapability.isValidated`.
+> Each engine's `CalendarSystemCapability.isValidated` reflects whether its output has been cross-checked against an authoritative source over its range. Astronomy engines also record documented boundary divergences from their cross-check oracle (for example Tet 1985) in the tests.
 
 <div align="right">
 

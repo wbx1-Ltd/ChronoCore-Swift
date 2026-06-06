@@ -84,7 +84,7 @@ ChronoCore 只解决一个问题：把一份历法日期描述（无论公历还
 
 > \[!NOTE\]
 >
-> 九套目标历法系统均已实现并测试。其中两个引擎（印度 Panchanga 与尼泊尔 Bikram Sambat）在能力中标记为未验证，因为对照已出版权威历的逐行核对仍待完成；详见 [历法系统](#-历法系统)。
+> 九套目标历法系统均已实现、测试，并对照权威来源验证：Foundation 引擎用 ICU，中国农历用 LunarCore，阴阳历用 Foundation `.dangi` 与 `.vietnamese`，尼泊尔与孟加拉用权威民用表，印度 Panchanga 用 Drik Panchang。详见 [历法系统](#-历法系统)。
 
 <div align="right">
 
@@ -262,15 +262,15 @@ for fixture in fixtures {
 | ✅ | **越南阴阳历** | `VietnameseLunisolarEngine`（Astronomy） | astronomy，UTC+7 | 是 | 1968 至 2099 |
 | ✅ | **希伯来历** | `HebrewEngine`（Foundation） | foundation（ICU） | 是 | 1900 至 2200 |
 | ✅ | **伊斯兰历 Umm al-Qura** | `HijriUmmAlQuraEngine`（Foundation） | foundation（ICU） | 是 | 1900 至 2100 |
-| ✅ | **尼泊尔 Bikram Sambat** | `NepaliBikramSambatEngine`（Tables） | table | 待核 | BS 2000 至 2110 |
-| ✅ | **印度 Panchanga** | `IndianPanchangaEngine`（Astronomy） | astronomy，Lahiri | 待核 | 1900 至 2099 |
+| ✅ | **尼泊尔 Bikram Sambat** | `NepaliBikramSambatEngine`（Tables） | table | 是 | BS 1970 至 2090 |
+| ✅ | **印度 Panchanga** | `IndianPanchangaEngine`（Astronomy） | astronomy，Lahiri | 是 | 1900 至 2099 |
 | ✅ | **孟加拉历** | `BanglaEngine`（Tables） | table（revised） | 是 | 约 1919 至 2119 |
 
 每个系统通过 `CalendarVariant` 暴露其标准或地区变体（如 `chineseMainland`、`koreanModern`、`vietnameseModernUTC7`、`ummAlQuraSaudi`、`bangladeshRevised`）。韩国与越南采用天文计算（不以中国农历近似），并对照 Foundation `.dangi` 与 `.vietnamese` 交叉校验；已记录的边界分歧写入测试。印度 Panchanga 返回某地点日出时刻的完整五支（tithi、nakshatra、yoga、karana、masa）。
 
 > \[!NOTE\]
 >
-> 「待核」表示引擎已实现且经天文或锚点验证，但与已出版官方历的逐行对照仍未完成。该状态通过 `CalendarSystemCapability.isValidated` 如实暴露。
+> 每个引擎的 `CalendarSystemCapability.isValidated` 反映其输出是否在范围内对照权威来源核对过。天文引擎还在测试中记录了与交叉校验 oracle 的已知边界分歧（例如 Tết 1985）。
 
 <div align="right">
 
