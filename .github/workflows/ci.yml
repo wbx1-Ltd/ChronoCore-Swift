@@ -1,0 +1,139 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_CLEANUP: 1
+
+jobs:
+  format:
+    name: Quality / Format
+    runs-on: macos-26
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install SwiftFormat
+        run: |
+          brew list swiftformat >/dev/null 2>&1 || brew install swiftformat
+
+      - name: Verify formatting
+        run: |
+          swiftformat . \
+            --config .swiftformat \
+            --lint \
+            --reporter github-actions-log
+
+  lint:
+    name: Quality / Lint
+    runs-on: macos-26
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install SwiftLint
+        run: |
+          brew list swiftlint >/dev/null 2>&1 || brew install swiftlint
+
+      - name: Run SwiftLint
+        run: |
+          swiftlint lint . \
+            --config .swiftlint.yml \
+            --strict \
+            --force-exclude \
+            --reporter github-actions-logging
+
+  baseline:
+    name: Test / Baseline
+    runs-on: macos-26
+    timeout-minutes: 30
+
+    steps:
+      # ChronoCore depends on the sibling cores by relative path, so all three
+      # repositories are checked out next to each other. Set SIBLING_REPOS_TOKEN
+      # to a read-scoped token if the sibling repositories are private; for public
+      # repositories the default GITHUB_TOKEN is sufficient.
+      - name: Checkout ChronoCore
+        uses: actions/checkout@v6
+        with:
+          path: ChronoCore-Swift
+
+      - name: Checkout LunarCore
+        uses: actions/checkout@v6
+        with:
+          repository: wbx1-Ltd/LunarCore-Swift
+          path: LunarCore-Swift
+          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Checkout AstroCore
+        uses: actions/checkout@v6
+        with:
+          repository: wbx1-Ltd/AstroCore-Swift
+          path: AstroCore-Swift
+          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Show Swift version
+        run: swift --version
+        working-directory: ChronoCore-Swift
+
+      # Re-derives the embedded Nepali Bikram Sambat table from Lahiri sidereal
+      # ingress astronomy and asserts the known civil New Year anchors.
+      - name: Verify Nepali table against astronomy
+        env:
+          CHRONO_GEN: "1"
+        run: swift test -c release --filter NepaliTableGenerator
+        working-directory: ChronoCore-Swift
+
+  swift-test:
+    name: Test / SwiftTest
+    runs-on: macos-26
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout ChronoCore
+        uses: actions/checkout@v6
+        with:
+          path: ChronoCore-Swift
+
+      - name: Checkout LunarCore
+        uses: actions/checkout@v6
+        with:
+          repository: wbx1-Ltd/LunarCore-Swift
+          path: LunarCore-Swift
+          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Checkout AstroCore
+        uses: actions/checkout@v6
+        with:
+          repository: wbx1-Ltd/AstroCore-Swift
+          path: AstroCore-Swift
+          token: ${{ secrets.SIBLING_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Show Swift version
+        run: swift --version
+        working-directory: ChronoCore-Swift
+
+      - name: Run release tests
+        run: swift test -c release
+        working-directory: ChronoCore-Swift

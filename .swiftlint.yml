@@ -1,0 +1,32 @@
+included:
+  - Package.swift
+  - Sources
+  - Tests
+
+excluded:
+  - .build
+  - .git
+  - .github
+  - .swiftpm
+  - local
+  - Sources/ChronoCoreTables/NepaliBikramSambatData.swift
+
+disabled_rules:
+  - cyclomatic_complexity
+  - file_length
+  - function_body_length
+  - function_parameter_count
+  - identifier_name
+  - large_tuple
+  - line_length
+  - non_optional_string_data_conversion
+  - opening_brace
+  - superfluous_disable_command
+  - todo
+  - trailing_comma
+  - type_body_length
+
+# Namespacing enums plus a nested report and its nested failure type sit two
+# levels deep; allow that without weakening the rule elsewhere.
+nesting:
+  type_level: 2
