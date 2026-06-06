@@ -1,0 +1,63 @@
+[
+  {
+    "id": "panchanga-ram-navami-2024",
+    "system": "indianPanchanga",
+    "variant": "indianPanchangaDefault",
+    "source": { "year": null, "month": 1, "day": 9, "isLeapMonth": null },
+    "dayBoundary": "sunrise",
+    "location": { "identifier": "ujjain", "latitude": 23.1765, "longitude": 75.7885, "timeZoneIdentifier": "Asia/Kolkata" },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 4, "day": 17 } ],
+    "expectedProvider": "astronomy",
+    "official": { "standard": "Drik Panchanga (Lahiri ayanamsa, amanta masa, sunrise)", "note": "Chaitra Shukla Navami = Ram Navami 2024" },
+    "sourceReferences": [ "source-dossier://indian-panchanga" ]
+  },
+  {
+    "id": "panchanga-buddha-purnima-2024",
+    "system": "indianPanchanga",
+    "variant": "indianPanchangaDefault",
+    "source": { "year": null, "month": 2, "day": 15, "isLeapMonth": null },
+    "dayBoundary": "sunrise",
+    "location": { "identifier": "ujjain", "latitude": 23.1765, "longitude": 75.7885, "timeZoneIdentifier": "Asia/Kolkata" },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 5, "day": 23 } ],
+    "official": { "note": "Vaishakha Purnima = Buddha Purnima 2024" },
+    "sourceReferences": [ "source-dossier://indian-panchanga" ]
+  },
+  {
+    "id": "panchanga-holi-2024",
+    "system": "indianPanchanga",
+    "variant": "indianPanchangaDefault",
+    "source": { "year": null, "month": 12, "day": 15, "isLeapMonth": null },
+    "dayBoundary": "sunrise",
+    "location": { "identifier": "ujjain", "latitude": 23.1765, "longitude": 75.7885, "timeZoneIdentifier": "Asia/Kolkata" },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 3, "day": 25 } ],
+    "official": { "note": "Phalguna Purnima = Holi 2024" },
+    "sourceReferences": [ "source-dossier://indian-panchanga" ]
+  },
+  {
+    "id": "panchanga-guru-purnima-2024",
+    "system": "indianPanchanga",
+    "variant": "indianPanchangaDefault",
+    "source": { "year": null, "month": 4, "day": 15, "isLeapMonth": null },
+    "dayBoundary": "sunrise",
+    "location": { "identifier": "ujjain", "latitude": 23.1765, "longitude": 75.7885, "timeZoneIdentifier": "Asia/Kolkata" },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 7, "day": 21 } ],
+    "official": { "note": "Ashadha Purnima = Guru Purnima 2024" },
+    "sourceReferences": [ "source-dossier://indian-panchanga" ]
+  },
+  {
+    "id": "panchanga-diwali-2024",
+    "system": "indianPanchanga",
+    "variant": "indianPanchangaDefault",
+    "source": { "year": null, "month": 7, "day": 30, "isLeapMonth": null },
+    "dayBoundary": "sunrise",
+    "location": { "identifier": "ujjain", "latitude": 23.1765, "longitude": 75.7885, "timeZoneIdentifier": "Asia/Kolkata" },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 11, "day": 1 } ],
+    "official": { "note": "Ashwina (amanta) Amavasya = Diwali 2024" },
+    "sourceReferences": [ "source-dossier://indian-panchanga" ]
+  }
+]

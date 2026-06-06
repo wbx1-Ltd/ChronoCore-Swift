@@ -1,0 +1,57 @@
+[
+  {
+    "id": "hijri-muharram1-1446",
+    "system": "hijriUmmAlQura",
+    "variant": "ummAlQuraSaudi",
+    "source": { "year": 1446, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 7, "day": 7 } ],
+    "expectedProvider": "foundation",
+    "official": { "standard": "Umm al-Qura", "authority": "KACST via ICU", "note": "1 Muharram 1446 (Islamic New Year)" },
+    "sourceReferences": [ "source-dossier://hijri-umm-al-qura" ]
+  },
+  {
+    "id": "hijri-ramadan1-1445",
+    "system": "hijriUmmAlQura",
+    "variant": "ummAlQuraSaudi",
+    "source": { "year": 1445, "month": 9, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 3, "day": 11 } ],
+    "official": { "note": "1 Ramadan 1445" },
+    "sourceReferences": [ "source-dossier://hijri-umm-al-qura" ]
+  },
+  {
+    "id": "hijri-ramadan1-1446",
+    "system": "hijriUmmAlQura",
+    "variant": "ummAlQuraSaudi",
+    "source": { "year": 1446, "month": 9, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 3, "day": 1 } ],
+    "official": { "note": "1 Ramadan 1446" },
+    "sourceReferences": [ "source-dossier://hijri-umm-al-qura" ]
+  },
+  {
+    "id": "hijri-eid-adha-1445",
+    "system": "hijriUmmAlQura",
+    "variant": "ummAlQuraSaudi",
+    "source": { "year": 1445, "month": 12, "day": 10, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 6, "day": 16 } ],
+    "official": { "note": "10 Dhu al-Hijjah 1445 (Eid al-Adha)" },
+    "sourceReferences": [ "source-dossier://hijri-umm-al-qura" ]
+  },
+  {
+    "id": "hijri-double-muharram-2008",
+    "system": "hijriUmmAlQura",
+    "variant": "ummAlQuraSaudi",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2008 },
+    "expectedGregorianDays": [
+      { "year": 2008, "month": 1, "day": 10 },
+      { "year": 2008, "month": 12, "day": 29 }
+    ],
+    "official": { "note": "Two Islamic New Years fall in Gregorian 2008 (AH 1429 and AH 1430)" },
+    "sourceReferences": [ "source-dossier://hijri-umm-al-qura" ],
+    "notes": [ "Many-occurrence: a Hijri date can recur twice in one Gregorian year" ]
+  }
+]

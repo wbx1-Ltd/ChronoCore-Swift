@@ -1,0 +1,74 @@
+[
+  {
+    "id": "chinese-cny-2024",
+    "system": "chineseLunar",
+    "variant": "chineseMainland",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "recurrencePolicy": "exactMonthDay",
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 2, "day": 10 } ],
+    "expectedProvider": "dependency",
+    "official": { "standard": "GB/T 33661-2017", "authority": "Purple Mountain Observatory", "note": "Spring Festival; cross-checked against Foundation .chinese at Asia/Shanghai" },
+    "sourceReferences": [ "source-dossier://chinese-lunar" ],
+    "notes": [ "Chinese New Year 2024 = lunar 1/1" ]
+  },
+  {
+    "id": "chinese-cny-2025",
+    "system": "chineseLunar",
+    "variant": "chineseMainland",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "recurrencePolicy": "exactMonthDay",
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 1, "day": 29 } ],
+    "sourceReferences": [ "source-dossier://chinese-lunar" ],
+    "notes": [ "Chinese New Year 2025 = lunar 1/1" ]
+  },
+  {
+    "id": "chinese-mid-autumn-2024",
+    "system": "chineseLunar",
+    "variant": "chineseMainland",
+    "source": { "year": null, "month": 8, "day": 15, "isLeapMonth": null },
+    "recurrencePolicy": "exactMonthDay",
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 9, "day": 17 } ],
+    "sourceReferences": [ "source-dossier://chinese-lunar" ],
+    "notes": [ "Mid-Autumn Festival 2024 = lunar 8/15" ]
+  },
+  {
+    "id": "chinese-leap-month-4-2020",
+    "system": "chineseLunar",
+    "variant": "chineseMainland",
+    "source": { "year": null, "month": 4, "day": 1, "isLeapMonth": true },
+    "recurrencePolicy": "leapMonthOnly",
+    "query": { "gregorianYear": 2020 },
+    "expectedGregorianDays": [ { "year": 2020, "month": 5, "day": 23 } ],
+    "official": { "note": "2020 has leap month 4; first day of leap month = 2020-05-23 (Foundation .chinese isLeapMonth=true)" },
+    "sourceReferences": [ "source-dossier://chinese-lunar" ],
+    "notes": [ "Leap fourth month, day 1, 2020" ]
+  },
+  {
+    "id": "chinese-leap-month-4-absent-2021",
+    "system": "chineseLunar",
+    "variant": "chineseMainland",
+    "source": { "year": null, "month": 4, "day": 1, "isLeapMonth": true },
+    "recurrencePolicy": "leapMonthOnly",
+    "query": { "gregorianYear": 2021 },
+    "expectedGregorianDays": [],
+    "sourceReferences": [ "source-dossier://chinese-lunar" ],
+    "notes": [ "2021 has no leap month 4; leapMonthOnly yields zero occurrences" ]
+  },
+  {
+    "id": "chinese-cny-range-2024-2025",
+    "system": "chineseLunar",
+    "variant": "chineseMainland",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "recurrencePolicy": "exactMonthDay",
+    "query": { "from": { "year": 2024, "month": 1, "day": 1 }, "to": { "year": 2025, "month": 12, "day": 31 } },
+    "expectedGregorianDays": [
+      { "year": 2024, "month": 2, "day": 10 },
+      { "year": 2025, "month": 1, "day": 29 }
+    ],
+    "sourceReferences": [ "source-dossier://chinese-lunar" ],
+    "notes": [ "Many-occurrence range query across two Gregorian years" ]
+  }
+]

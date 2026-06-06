@@ -1,0 +1,94 @@
+[
+  {
+    "id": "hebrew-rosh-hashanah-5785",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": 5785, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 10, "day": 3 } ],
+    "expectedProvider": "foundation",
+    "official": { "standard": "Arithmetic Hebrew calendar", "authority": "ICU", "note": "Tishrei 1 5785 = Rosh Hashanah" },
+    "parity": { "provider": "foundation", "calendarIdentifier": "hebrew" },
+    "sourceReferences": [ "source-dossier://hebrew" ],
+    "notes": [ "tishrei = stable code 1" ]
+  },
+  {
+    "id": "hebrew-rosh-hashanah-yearless-2025",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 9, "day": 23 } ],
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-purim-adarII-5784",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": 5784, "month": 14, "day": 14, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 3, "day": 24 } ],
+    "official": { "note": "Purim, 14 Adar II of leap year 5784. adarII = stable code 14" },
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-purim-adar-5785",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": 5785, "month": 6, "day": 14, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 3, "day": 14 } ],
+    "official": { "note": "Purim, 14 Adar of common year 5785. adar = stable code 6" },
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-adarI-1-5784",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": 5784, "month": 13, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 2, "day": 10 } ],
+    "official": { "note": "1 Adar I of leap year 5784. adarI = stable code 13" },
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-plain-adar-yearless-leap-2024",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": null, "month": 6, "day": 14, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 3, "day": 24 } ],
+    "notes": [ "Plain Adar in leap Gregorian-mapped year resolves to Adar II" ],
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-plain-adar-yearless-common-2025",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": null, "month": 6, "day": 14, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 3, "day": 14 } ],
+    "notes": [ "Plain Adar in a common year stays Adar" ],
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-cheshvan30-absent-5784",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": 5784, "month": 2, "day": 30, "isLeapMonth": null },
+    "query": { "gregorianYear": 2023 },
+    "expectedGregorianDays": [],
+    "notes": [ "Cheshvan has 29 days in 5784; day 30 does not exist (zero occurrences)" ],
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  },
+  {
+    "id": "hebrew-cheshvan30-present-yearless-2024",
+    "system": "hebrew",
+    "variant": "hebrewCivil",
+    "source": { "year": null, "month": 2, "day": 30, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 12, "day": 1 } ],
+    "notes": [ "Cheshvan has 30 days in 5785; 30 Cheshvan 5785 = 2024-12-01" ],
+    "sourceReferences": [ "source-dossier://hebrew" ]
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "id": "korean-seollal-2024",
+    "system": "koreanLunisolar",
+    "variant": "koreanModern",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "recurrencePolicy": "exactMonthDay",
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 2, "day": 10 } ],
+    "expectedProvider": "astronomy",
+    "official": { "standard": "KASI eumnyeok", "authority": "KASI via Foundation .dangi", "note": "Seollal (Korean New Year) 2024" },
+    "parity": { "provider": "foundation", "calendarIdentifier": "dangi", "timeZone": "Asia/Seoul" },
+    "sourceReferences": [ "source-dossier://korean-lunisolar" ]
+  },
+  {
+    "id": "korean-seollal-2025",
+    "system": "koreanLunisolar",
+    "variant": "koreanModern",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 1, "day": 29 } ],
+    "sourceReferences": [ "source-dossier://korean-lunisolar" ]
+  },
+  {
+    "id": "korean-chuseok-2024",
+    "system": "koreanLunisolar",
+    "variant": "koreanModern",
+    "source": { "year": null, "month": 8, "day": 15, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 9, "day": 17 } ],
+    "official": { "note": "Chuseok 2024 = lunar 8/15" },
+    "sourceReferences": [ "source-dossier://korean-lunisolar" ]
+  },
+  {
+    "id": "korean-leap-month-4-2020",
+    "system": "koreanLunisolar",
+    "variant": "koreanModern",
+    "source": { "year": null, "month": 4, "day": 1, "isLeapMonth": true },
+    "recurrencePolicy": "leapMonthOnly",
+    "query": { "gregorianYear": 2020 },
+    "expectedGregorianDays": [ { "year": 2020, "month": 5, "day": 23 } ],
+    "official": { "note": "Leap fourth month 2020, KST" },
+    "sourceReferences": [ "source-dossier://korean-lunisolar" ]
+  }
+]

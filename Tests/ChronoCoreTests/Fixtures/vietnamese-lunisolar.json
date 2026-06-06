@@ -1,0 +1,46 @@
+[
+  {
+    "id": "vietnamese-tet-2024",
+    "system": "vietnameseLunisolar",
+    "variant": "vietnameseModernUTC7",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "recurrencePolicy": "exactMonthDay",
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 2, "day": 10 } ],
+    "expectedProvider": "astronomy",
+    "official": { "standard": "Vietnam am lich UTC+7", "authority": "Ho Ngoc Duc via Foundation .vietnamese", "note": "Tet 2024" },
+    "parity": { "provider": "foundation", "calendarIdentifier": "vietnamese", "timeZone": "Asia/Ho_Chi_Minh" },
+    "sourceReferences": [ "source-dossier://vietnamese-lunisolar" ]
+  },
+  {
+    "id": "vietnamese-tet-2025",
+    "system": "vietnameseLunisolar",
+    "variant": "vietnameseModernUTC7",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 1, "day": 29 } ],
+    "sourceReferences": [ "source-dossier://vietnamese-lunisolar" ]
+  },
+  {
+    "id": "vietnamese-tet-1985-canonical-divergence",
+    "system": "vietnameseLunisolar",
+    "variant": "vietnameseModernUTC7",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 1985 },
+    "expectedGregorianDays": [ { "year": 1985, "month": 1, "day": 21 } ],
+    "official": { "note": "Documented divergence: pure UTC+7 astronomy puts Tet 1985 on 1985-01-21 because the 1984 winter solstice (12-21 16:23 UTC) falls on civil 12-21 at UTC+7, placing month 11 a lunation earlier than at China UTC+8. The official Vietnamese almanac and Foundation .vietnamese override this to 1985-02-20. ChronoCore canonical follows astronomy for cross-platform consistency." },
+    "sourceReferences": [ "source-dossier://vietnamese-lunisolar" ],
+    "notes": [ "Known astronomy vs official divergence year" ]
+  },
+  {
+    "id": "vietnamese-leap-month-4-2020",
+    "system": "vietnameseLunisolar",
+    "variant": "vietnameseModernUTC7",
+    "source": { "year": null, "month": 4, "day": 1, "isLeapMonth": true },
+    "recurrencePolicy": "leapMonthOnly",
+    "query": { "gregorianYear": 2020 },
+    "expectedGregorianDays": [ { "year": 2020, "month": 5, "day": 23 } ],
+    "official": { "note": "Leap fourth month 2020, UTC+7" },
+    "sourceReferences": [ "source-dossier://vietnamese-lunisolar" ]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "bangla-pohela-boishakh-1426",
+    "system": "bangla",
+    "variant": "bangladeshRevised",
+    "source": { "year": 1426, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2019 },
+    "expectedGregorianDays": [ { "year": 2019, "month": 4, "day": 14 } ],
+    "expectedProvider": "table",
+    "official": { "standard": "Bangladesh revised (Bangla Academy 2019)", "note": "Pohela Boishakh 1426, reform year, fixed to April 14" },
+    "sourceReferences": [ "source-dossier://bangla" ]
+  },
+  {
+    "id": "bangla-pohela-boishakh-1431",
+    "system": "bangla",
+    "variant": "bangladeshRevised",
+    "source": { "year": 1431, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 4, "day": 14 } ],
+    "sourceReferences": [ "source-dossier://bangla" ]
+  },
+  {
+    "id": "bangla-falgun-1-1426",
+    "system": "bangla",
+    "variant": "bangladeshRevised",
+    "source": { "year": 1426, "month": 11, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2020 },
+    "expectedGregorianDays": [ { "year": 2020, "month": 2, "day": 14 } ],
+    "official": { "note": "Falgun 1 1426 = 2020-02-14 (matches design reference)" },
+    "sourceReferences": [ "source-dossier://bangla" ]
+  },
+  {
+    "id": "bangla-language-day-1429",
+    "system": "bangla",
+    "variant": "bangladeshRevised",
+    "source": { "year": 1429, "month": 11, "day": 8, "isLeapMonth": null },
+    "query": { "gregorianYear": 2023 },
+    "expectedGregorianDays": [ { "year": 2023, "month": 2, "day": 21 } ],
+    "official": { "note": "8 Falgun = 21 February (Language Martyrs Day), national-day alignment" },
+    "sourceReferences": [ "source-dossier://bangla" ]
+  },
+  {
+    "id": "bangla-victory-day-1429",
+    "system": "bangla",
+    "variant": "bangladeshRevised",
+    "source": { "year": 1429, "month": 9, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2022 },
+    "expectedGregorianDays": [ { "year": 2022, "month": 12, "day": 16 } ],
+    "official": { "note": "1 Poush = 16 December (Victory Day)" },
+    "sourceReferences": [ "source-dossier://bangla" ]
+  },
+  {
+    "id": "bangla-independence-day-1429",
+    "system": "bangla",
+    "variant": "bangladeshRevised",
+    "source": { "year": 1429, "month": 12, "day": 12, "isLeapMonth": null },
+    "query": { "gregorianYear": 2023 },
+    "expectedGregorianDays": [ { "year": 2023, "month": 3, "day": 26 } ],
+    "official": { "note": "12 Choitro = 26 March (Independence Day)" },
+    "sourceReferences": [ "source-dossier://bangla" ]
+  }
+]

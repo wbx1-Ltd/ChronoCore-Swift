@@ -1,0 +1,51 @@
+[
+  {
+    "id": "nepali-new-year-2080",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": 2080, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2023 },
+    "expectedGregorianDays": [ { "year": 2023, "month": 4, "day": 14 } ],
+    "expectedProvider": "table",
+    "official": { "note": "BS 2080 Baishakh 1 = Nepali New Year 2023" },
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  },
+  {
+    "id": "nepali-new-year-2081",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": 2081, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 4, "day": 13 } ],
+    "official": { "note": "BS 2081 Baishakh 1 = 2024-04-13 (an April 13 New Year)" },
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  },
+  {
+    "id": "nepali-new-year-2082",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": 2082, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2025 },
+    "expectedGregorianDays": [ { "year": 2025, "month": 4, "day": 14 } ],
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  },
+  {
+    "id": "nepali-anchor-2000",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": 2000, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 1943 },
+    "expectedGregorianDays": [ { "year": 1943, "month": 4, "day": 14 } ],
+    "official": { "note": "Table anchor: BS 2000 Baishakh 1 = 1943-04-14" },
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  },
+  {
+    "id": "nepali-new-year-yearless-2024",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": null, "month": 1, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 4, "day": 13 } ],
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  }
+]
