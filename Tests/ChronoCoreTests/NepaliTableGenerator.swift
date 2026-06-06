@@ -2,11 +2,13 @@ import ChronoCore
 @testable import ChronoCoreAstronomy
 import XCTest
 
-/// Development-time generator (not a behavioural assertion): computes the Nepali
-/// Bikram Sambat month-length table from Lahiri sidereal solar ingresses at the
-/// Kathmandu meridian (UTC+5:45), prints it for embedding in ChronoCoreTables,
-/// and checks the known civil New Year anchors. Disabled by default; run with
-/// CHRONO_GEN=1 swift test --filter NepaliTableGenerator.
+/// Independent astronomical cross-check for the Nepali Bikram Sambat engine. The
+/// embedded table (NepaliBikramSambatData) is the canonical civil dataset; this
+/// asserts that Lahiri sidereal solar ingress at the Kathmandu meridian
+/// (UTC+5:45) reproduces the known civil New Year anchors, confirming the year
+/// boundaries from first principles. It also prints the astronomical month-length
+/// table for reference. Gated by CHRONO_GEN=1 (the CI baseline job) and skipped
+/// by default because it depends on the astronomy stack.
 final class NepaliTableGenerator: XCTestCase {
     private let tzHours = 5.75 // Asia/Kathmandu
 
@@ -21,10 +23,11 @@ final class NepaliTableGenerator: XCTestCase {
         print(lines.joined(separator: "\n"))
         print("NEPALI_TABLE_END")
 
-        // Anchor checks
+        // Assert the astronomical New Year matches the known civil anchors.
         for (bs, g) in [(2000, (1943, 4, 14)), (2076, (2019, 4, 14)), (2080, (2023, 4, 14)), (2081, (2024, 4, 13)), (2082, (2025, 4, 14))] {
             let ny = try newYearCivilDay(bsYear: bs)
-            print("ANCHOR BS\(bs) -> \(ny) expected \(g)")
+            let expected = GregorianDay(year: g.0, month: g.1, day: g.2)
+            XCTAssertEqual(ny, expected, "astronomical New Year for BS \(bs)")
         }
     }
 

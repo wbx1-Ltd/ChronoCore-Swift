@@ -12,7 +12,7 @@ final class NepaliBikramSambatEngineTests: XCTestCase {
 
     func testNewYearAlwaysInAprilWindow() throws {
         // Every BS New Year (Baishakh 1) must fall on Gregorian April 12...15.
-        for bsYear in 2000...2110 {
+        for bsYear in 1970...2090 {
             let spec = CalendarDateSpec(system: .nepaliBikramSambat, variant: .nepaliOfficial, year: bsYear, month: 1, day: 1)
             let gregYear = bsYear - 57
             let occ = try engine.occurrences(of: spec, inGregorianYear: gregYear)
@@ -26,8 +26,8 @@ final class NepaliBikramSambatEngineTests: XCTestCase {
     func testFullRangeRoundTrip() throws {
         let report = try RangeCheck.roundTrip(
             engine: engine,
-            from: XCTUnwrap(GregorianDay(year: 1943, month: 4, day: 14)),
-            to: XCTUnwrap(GregorianDay(year: 2050, month: 12, day: 31))
+            from: XCTUnwrap(GregorianDay(year: 1914, month: 1, day: 1)),
+            to: XCTUnwrap(GregorianDay(year: 2033, month: 12, day: 31))
         )
         XCTAssertTrue(report.isClean, "round-trip failures: \(report.failures.prefix(5))")
         XCTAssertGreaterThan(report.checked, 39000)
@@ -63,8 +63,9 @@ final class NepaliBikramSambatEngineTests: XCTestCase {
     }
 
     func testOutOfRange() throws {
-        let spec = CalendarDateSpec(system: .nepaliBikramSambat, variant: .nepaliOfficial, year: 1990, month: 1, day: 1)
-        let occ = try? engine.occurrences(of: spec, inGregorianYear: 1933)
+        // BS 1960 is before the table start (1970); no occurrence is produced.
+        let spec = CalendarDateSpec(system: .nepaliBikramSambat, variant: .nepaliOfficial, year: 1960, month: 1, day: 1)
+        let occ = try? engine.occurrences(of: spec, inGregorianYear: 1903)
         XCTAssertEqual(occ, [])
         XCTAssertThrowsError(try engine.dateSpec(from: XCTUnwrap(GregorianDay(year: 1800, month: 1, day: 1))))
     }

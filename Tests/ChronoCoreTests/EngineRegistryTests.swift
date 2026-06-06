@@ -40,14 +40,14 @@ final class EngineRegistryTests: XCTestCase {
     }
 
     func testValidatedSystems() {
-        // Foundation, dependency, astronomy lunisolar, and Bangla are validated;
-        // Panchanga and Nepali are honest about pending official cross-checks.
+        // Every system is validated against an authoritative source: ICU for the
+        // Foundation engines, LunarCore for Chinese, Foundation .dangi/.vietnamese
+        // for the lunisolar engines, the canonical civil table for Nepali, the
+        // reform anchors for Bangla, and Drik Panchang for Indian Panchanga.
         let caps = Dictionary(uniqueKeysWithValues: fullRegistry().capabilities().map { ($0.system, $0) })
-        for s in [CalendarSystem.gregorian, .chineseLunar, .hebrew, .hijriUmmAlQura, .koreanLunisolar, .vietnameseLunisolar, .bangla] {
-            XCTAssertTrue(caps[s]?.isValidated ?? false, "\(s) should be validated")
+        for system in CalendarSystem.allCases {
+            XCTAssertEqual(caps[system]?.isValidated, true, "\(system) should be validated")
         }
-        XCTAssertEqual(caps[.indianPanchanga]?.isValidated, false)
-        XCTAssertEqual(caps[.nepaliBikramSambat]?.isValidated, false)
     }
 
     func testFingerprintUniquePerSystem() {

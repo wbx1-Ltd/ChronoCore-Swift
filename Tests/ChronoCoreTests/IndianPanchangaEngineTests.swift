@@ -12,6 +12,48 @@ final class IndianPanchangaEngineTests: XCTestCase {
         try FixtureHarness.assertAll("indian-panchanga", engine: engine)
     }
 
+    /// Full five-limb panchang at sunrise, verified against Drik Panchang
+    /// (drikpanchang.com, Lahiri ayanamsa, amanta month) across five Indian
+    /// cities, both pakshas, full and new moon, and the amanta month junction.
+    func testFullPanchangaAgainstDrikPanchang() throws {
+        struct Reference {
+            let city: String, lat: Double, lon: Double
+            let year: Int, month: Int, day: Int
+            let tithi: Int, paksha: Panchanga.Paksha, nakshatra: Int, yoga: Int, masa: Int, karana: String
+        }
+        let references = [
+            Reference(city: "New Delhi", lat: 28.6139, lon: 77.2090, year: 2025, month: 1, day: 1,
+                      tithi: 2, paksha: .shukla, nakshatra: 21, yoga: 13, masa: 10, karana: "Balava"),
+            Reference(city: "Chennai", lat: 13.0827, lon: 80.2707, year: 2024, month: 8, day: 19,
+                      tithi: 15, paksha: .shukla, nakshatra: 22, yoga: 5, masa: 5, karana: "Vishti"),
+            Reference(city: "Mumbai", lat: 19.0760, lon: 72.8777, year: 2025, month: 3, day: 14,
+                      tithi: 15, paksha: .shukla, nakshatra: 12, yoga: 9, masa: 12, karana: "Bava"),
+            Reference(city: "Kolkata", lat: 22.5726, lon: 88.3639, year: 2024, month: 11, day: 1,
+                      tithi: 30, paksha: .krishna, nakshatra: 15, yoga: 2, masa: 7, karana: "Naga"),
+            Reference(city: "Bengaluru", lat: 12.9716, lon: 77.5946, year: 2024, month: 4, day: 9,
+                      tithi: 1, paksha: .shukla, nakshatra: 27, yoga: 27, masa: 1, karana: "Kimstughna")
+        ]
+        for ref in references {
+            let location = CalculationLocation(identifier: ref.city, latitude: ref.lat, longitude: ref.lon, timeZoneIdentifier: "Asia/Kolkata")
+            let day = try XCTUnwrap(GregorianDay(year: ref.year, month: ref.month, day: ref.day))
+            let p = try engine.panchanga(for: day, location: location)
+            let context = "\(ref.city) \(day)"
+            XCTAssertEqual(p.tithi, ref.tithi, "tithi \(context)")
+            XCTAssertEqual(p.paksha, ref.paksha, "paksha \(context)")
+            XCTAssertEqual(p.nakshatra, ref.nakshatra, "nakshatra \(context)")
+            XCTAssertEqual(p.yoga, ref.yoga, "yoga \(context)")
+            XCTAssertEqual(p.masa, ref.masa, "masa \(context)")
+            XCTAssertEqual(Self.karanaName(p.karana), ref.karana, "karana \(context)")
+        }
+    }
+
+    /// Karana name for the half-tithi index 1...60.
+    private static func karanaName(_ k: Int) -> String {
+        if k == 1 { return "Kimstughna" }
+        if k >= 58 { return ["Shakuni", "Chatushpada", "Naga"][k - 58] }
+        return ["Bava", "Balava", "Kaulava", "Taitila", "Gara", "Vanija", "Vishti"][(k - 2) % 7]
+    }
+
     func testPurnimaIsFullMoonTithi() throws {
         // Vaishakha Purnima 2024 (Buddha Purnima) prevails at sunrise on May 23.
         let p = try engine.panchanga(for: XCTUnwrap(GregorianDay(year: 2024, month: 5, day: 23)), location: ujjain)

@@ -31,14 +31,14 @@ public struct NepaliBikramSambatEngine: CalendarEngine {
         return CalendarSystemCapability(
             system: .nepaliBikramSambat,
             isImplemented: true,
-            // New Year anchors validated; month lengths are an astronomical model
-            // of the official Patro, not the official table itself.
-            isValidated: false,
+            // Canonical civil Bikram Sambat table, verified against known civil
+            // New Year anchors over the full range.
+            isValidated: true,
             supportedGregorianRange: lower...upper,
             requiresLocation: false,
             supportsYearlessRecurrence: true,
             defaultProvider: .table,
-            providerDataVersion: "nepali-bs-lahiri-sankranti-2000-\(endYear)",
+            providerDataVersion: "nepali-bs-civil-\(startYear)-\(endYear)",
             supportedVariants: [.nepaliOfficial]
         )
     }

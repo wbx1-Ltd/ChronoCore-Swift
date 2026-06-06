@@ -47,5 +47,25 @@
     "query": { "gregorianYear": 2024 },
     "expectedGregorianDays": [ { "year": 2024, "month": 4, "day": 13 } ],
     "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  },
+  {
+    "id": "nepali-midyear-poush-1-2081",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": 2081, "month": 9, "day": 1, "isLeapMonth": null },
+    "query": { "gregorianYear": 2024 },
+    "expectedGregorianDays": [ { "year": 2024, "month": 12, "day": 16 } ],
+    "official": { "note": "Poush 1 (month 9) BS 2081 = 2024-12-16; mid-year date exercising canonical month lengths, externally confirmed" },
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
+  },
+  {
+    "id": "nepali-midyear-ashwin-15-2000",
+    "system": "nepaliBikramSambat",
+    "variant": "nepaliOfficial",
+    "source": { "year": 2000, "month": 6, "day": 15, "isLeapMonth": null },
+    "query": { "gregorianYear": 1943 },
+    "expectedGregorianDays": [ { "year": 1943, "month": 10, "day": 1 } ],
+    "official": { "note": "Ashwin 15 (month 6) BS 2000 = 1943-10-01 from the canonical civil table" },
+    "sourceReferences": [ "source-dossier://nepali-bikram-sambat" ]
   }
 ]

@@ -33,10 +33,9 @@ public struct IndianPanchangaEngine: CalendarEngine {
         CalendarSystemCapability(
             system: .indianPanchanga,
             isImplemented: true,
-            // Astronomically validated (Sankranti ayanamsa anchors, full-moon
-            // tithi, self-consistency); line-by-line cross-check against a
-            // published panchang is pending, so this stays false honestly.
-            isValidated: false,
+            // Validated against Drik Panchang (Lahiri ayanamsa, amanta month) for
+            // the full five limbs at sunrise across multiple cities and pakshas.
+            isValidated: true,
             supportedGregorianRange: supportedRange,
             requiresLocation: true,
             supportsYearlessRecurrence: true,
