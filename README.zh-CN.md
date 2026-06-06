@@ -100,7 +100,7 @@ ChronoCore 只解决一个问题：把一份历法日期描述（无论公历还
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/wbx1-Ltd/ChronoCore-Swift.git", from: "0.1.0"),
+    .package(url: "https://github.com/wbx1-Ltd/ChronoCore-Swift.git", from: "1.0.0"),
 ]
 ```
 

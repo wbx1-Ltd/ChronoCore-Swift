@@ -1,5 +1,5 @@
 public enum ChronoCoreInfo {
-    public static let version = "0.1.0"
+    public static let version = "1.0.0"
 }
 
 /// Deterministic, process-independent string hash (FNV-1a 64-bit) for cache
