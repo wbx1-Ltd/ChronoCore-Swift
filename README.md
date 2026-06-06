@@ -282,9 +282,9 @@ Each system exposes its standard or regional variants through `CalendarVariant` 
 
 | Metric | Value |
 |--------|-------|
-| Test functions | **102** |
+| Test functions | **103** |
 | Test suites | **15** |
-| Golden fixtures | **45** |
+| Golden fixtures | **47** |
 
 Run the package tests with:
 
@@ -295,7 +295,7 @@ swift test
 Coverage:
 
 - ✅ **Per-engine unit tests** for all nine systems: validation, recurrence, leap and boundary handling
-- ✅ **Source-backed golden fixtures**: 45 records across nine calendars (festivals, new years, leap months, reform boundaries, multi-result years)
+- ✅ **Source-backed golden fixtures**: 47 records across nine calendars (festivals, new years, leap months, reform boundaries, multi-result years)
 - ✅ **Provider parity**: astronomy engines checked day-by-day against Foundation `.dangi` and `.vietnamese`; Foundation engines checked against ICU; Chinese checked against Foundation `.chinese`
 - ✅ **Round-trip and range**: large-range Gregorian round-trip for table engines, multi-year occurrence ranges, monotonicity
 - ✅ **Recurrence cardinality**: zero, one, and many occurrences (for example a Hijri date twice in one Gregorian year)
